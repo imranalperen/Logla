@@ -1,4 +1,8 @@
+const fs = require("fs");
+const { promises: fsPromises } = require("fs");
+
 const { SIZE_DEFAULTS, TIME_DEFAULTS } = require("./defaults");
+const { setFilePath } = require("./utils");
 
 class Rolling {
     #size;
@@ -52,6 +56,26 @@ class Rolling {
                 \nYour time is ${time}`
             );
         }
+    }
+
+    static async rollingCheck(file, configs) {
+        const stats = await file.stat();
+        const current_time = new Date().getTime();
+
+        let new_file = file;
+        if (
+            stats.size >= configs.rolling_configs.size ||
+            current_time - stats.birthtimeMs >= configs.rolling_configs.time * 1000
+        ) {
+            await file.close();
+            let f_path = setFilePath(
+                configs.file_configs.prefix,
+                configs.folder_configs.folder,
+                configs.folder_configs.name
+            );
+            new_file = await fsPromises.open(f_path);
+        }
+        return new_file;
     }
 }
 

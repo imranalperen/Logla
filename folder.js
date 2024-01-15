@@ -1,7 +1,6 @@
-const { FOLDER_DEFAULTS } = require("./defaults");
 const fs = require("fs");
 
-const folderNameRegex = /^[A-Za-z]+$/;
+const { FOLDER_DEFAULTS } = require("./defaults");
 
 class Folder {
     #folder;
@@ -17,7 +16,6 @@ class Folder {
 
     static setDefaults(config) {
         if (!config) config = {};
-        //TODO check other os '/' is works properly ?
         if (!config.folder) config.folder = FOLDER_DEFAULTS.FOLDER;
         if (!config.name) config.name = FOLDER_DEFAULTS.NAME;
 
@@ -37,11 +35,11 @@ class Folder {
             );
         }
         this.#assertFolderName(folder_configs.name);
-        const folder_path = this.#createFolder(folder_configs.folder, folder_configs.name);
-        return folder_path;
+        this.#createFolder(folder_configs.folder, folder_configs.name);
     }
 
     static #assertFolderName(name) {
+        const folderNameRegex = /^[A-Za-z]+$/;
         if (!folderNameRegex.test(name)) {
             throw new Error(
                 `Invalid folder name ${JSON.stringify(name)}
@@ -52,12 +50,18 @@ class Folder {
 
     static #createFolder(folder, name) {
         try {
-            const folder_path = folder + name;
-            if (!fs.existsSync(folder_path)) {
-                fs.mkdirSync(folder_path);
+            const f_path = folder + name;
+            /**
+             * TODO check for other os is work properly
+             * Using fs instead fs/promises.
+             * This func only runs at app stands up and/or setted time period.
+             * Means doesn't use regularly.
+             * For more readable code with negligible performance loss.
+             */
+            if (!fs.existsSync(f_path)) {
+                fs.mkdirSync(f_path);
             }
-            console.info(`LOGLA will writes at ---> ${folder_path}`);
-            return folder_path;
+            console.info(`LOGLA will writes at ---> ${f_path}/`);
         } catch (err) {
             console.error(`Unexpected error while creating folder.\n${err}`);
         }

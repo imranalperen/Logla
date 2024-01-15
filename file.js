@@ -2,28 +2,20 @@ const { FILE_DEFAULTS } = require("./defaults");
 
 class File {
     #prefix;
-    #date_type;
 
     get prefix() {
         return this.#prefix;
     }
 
-    get date_type() {
-        return this.#date_type;
-    }
-
     static setDefaults(config) {
         if (!config) config = {};
         if (!config.prefix) config.prefix = FILE_DEFAULTS.PREFIX;
-        if (!config.date_type) config.date_type = FILE_DEFAULTS.DATE_TYPES.JS_DATE;
-        config.date_type = config.date_type.toUpperCase();
 
         return new File(config);
     }
 
     constructor(file_configs) {
         this.#prefix = file_configs.prefix;
-        this.#date_type = file_configs.date_type;
     }
 
     static assert(file_configs) {
@@ -34,7 +26,6 @@ class File {
             );
         }
         this.#assertPrefix(file_configs.prefix);
-        this.#assertDateType(file_configs.date_type);
     }
 
     static #assertPrefix(string) {
@@ -43,15 +34,6 @@ class File {
                 `File prefix length is ${JSON.stringify(string)}.
                 \nThis variable located before all lines. Exp:
                 \n[My_Prefix]: .....`
-            );
-        }
-    }
-
-    static #assertDateType(date_type) {
-        if (!Object.keys(FILE_DEFAULTS.DATE_TYPES).includes(date_type)) {
-            throw new Error(
-                `Unsupported date type: ${JSON.stringify(date_type)}
-                \nList of supported date types: ${JSON.stringify(FILE_DEFAULTS.DATE_TYPES)}`
             );
         }
     }

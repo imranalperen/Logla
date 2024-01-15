@@ -6,11 +6,7 @@ module.exports.FOLDER_DEFAULTS = {
 };
 
 module.exports.FILE_DEFAULTS = {
-    DATE_TYPES: {
-        JS_DATE: "JS_DATE",
-        UNIX: "UNIX",
-    },
-    PREFIX: "[LOGLA]: ",
+    PREFIX: "LOGLA_",
 };
 
 module.exports.SIZE_DEFAULTS = {
@@ -22,3 +18,5 @@ module.exports.TIME_DEFAULTS = {
     Daily: 24 * 60 * 60,
     Weekly: 7 * 24 * 60 * 60,
 };
+
+module.exports.LEVEL_DEFAULTS = ["DEBUG", "INFO", "WARN", "ERROR", "CRITICAL"];
