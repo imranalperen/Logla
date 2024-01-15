@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 
 module.exports.YYYY_MM_DD = () => {
     const today = new Date();
@@ -23,10 +24,12 @@ module.exports.logDateFormat = () => {
     return `${year}|${month}|${day}|${hours}:${minutes}:${seconds}:${ms}`;
 };
 
-module.exports.setFilePath = (prefix, folder, name) => {
-    // TODO fix the bug
-    // const file_name = "/" + prefix + this.YYYY_MM_DD() + ".log";
-    const file_name = "/" + prefix + this.logDateFormat() + ".log";
-    const f_path = path.resolve(folder + name + file_name);
-    return f_path;
+module.exports.setFilePath = (prefix, folder, name, increment) => {
+    if (increment) {
+        
+    } else {
+        const file_name = "/" + prefix + this.YYYY_MM_DD() + ".log";
+        const f_path = path.resolve(folder + name + file_name);
+        return f_path;
+    }
 };

@@ -1,5 +1,4 @@
-const fs = require("fs");
-const { promises: fsPromises } = require("fs");
+const fs = require("fs/promises");
 
 const { SIZE_DEFAULTS, TIME_DEFAULTS } = require("./defaults");
 const { setFilePath } = require("./utils");
@@ -71,9 +70,9 @@ class Rolling {
             let f_path = setFilePath(
                 configs.file_configs.prefix,
                 configs.folder_configs.folder,
-                configs.folder_configs.name
+                configs.folder_configs.name,
             );
-            new_file = await fsPromises.open(f_path);
+            new_file = await fs.open(f_path);
         }
         return new_file;
     }

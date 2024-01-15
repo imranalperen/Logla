@@ -1,8 +1,7 @@
 const path = require("path");
 
 module.exports.FOLDER_DEFAULTS = {
-    FOLDER: path.join(__dirname, "/"),
-    NAME: "LOGLA",
+    FOLDER: path.join(__dirname),
 };
 
 module.exports.FILE_DEFAULTS = {
