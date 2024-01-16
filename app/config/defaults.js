@@ -1,6 +1,6 @@
 const path = require("path");
 
-module.exports.FOLDER = path.join(__dirname, "../", "LOGLA");
+module.exports.DIRECTORY = path.join(__dirname, "../", "LOGLA");
 
 module.exports.PREFIX = "LOGLA_";
 
