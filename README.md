@@ -1,5 +1,8 @@
 Learning purpose logging library based on fs, fs:promises modules.
 
+## Dependencies
+- `Node: v20.10.0`
+
 ## Using Example
 
 ```js
