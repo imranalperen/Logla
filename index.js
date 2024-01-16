@@ -1,8 +1,9 @@
 const { Logla } = require("./app/logla");
+const path = require("path");
 
 const confs = {
-    dir_path: "/home/alperen/code/Logla/LOGTEST",
-    file_prefix: "My_Prefix",
+    dir_path: path.join(__dirname, "LOGLA"),
+    file_prefix: "DEV_",
     roll_size: 5 * 1024 * 1024,
     roll_time: 24 * 60 * 60,
 };
