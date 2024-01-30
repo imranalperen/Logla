@@ -4,6 +4,9 @@ Learning purpose logging library based on fs, fs/promises modules.
 - `Node: v20.10.0`
 
 ## Using Example
+```
+npm i logla
+```
 
 ```js
 const { Logla } = require("logla");
