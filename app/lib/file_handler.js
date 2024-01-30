@@ -56,7 +56,7 @@ class FileHandler {
         try {
             // TODO check for other os is work properly
             if (!fs.existsSync(f_path)) {
-                fs.mkdirSync(f_path);
+                fs.mkdirSync(f_path, { recursive: true });
             }
             console.info(`LOGLA will writes at ---> ${f_path}`);
         } catch (err) {

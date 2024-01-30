@@ -6,7 +6,7 @@ Learning purpose logging library based on fs, fs:promises modules.
 ## Using Example
 
 ```js
-const { Logla } = require("./app/logla");
+const { Logla } = require("logla");
 const path = require("path");
 
 const confs = {

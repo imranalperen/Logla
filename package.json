@@ -1,0 +1,24 @@
+{
+  "name": "logla",
+  "version": "0.0.1",
+  "description": "Learning purpose logging library.",
+  "main": "app/logla.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imranalperen/Logla.git"
+  },
+  "keywords": [
+    "logger",
+    "log",
+    "logla"
+  ],
+  "author": "imranalperen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imranalperen/Logla/issues"
+  },
+  "homepage": "https://github.com/imranalperen/Logla#readme"
+}
