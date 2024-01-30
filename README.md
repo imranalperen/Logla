@@ -1,4 +1,4 @@
-Learning purpose logging library based on fs, fs:promises modules.
+Learning purpose logging library based on fs, fs/promises modules.
 
 ## Dependencies
 - `Node: v20.10.0`
@@ -25,6 +25,15 @@ const LOGGER = new Logla(confs);
 
 
 ```
+### Output
+
+```
+PROJECT_PATH/LOGLA/DEV_2024-01-20-file#0.log
+
+[2024|01|20|17:26:1:689] [DEBUG]: test
+
+```
+
 #### Default Values
 - `dir_path` ==> `PROJECT_PATH/app/LOGLA`
 - `file_prefix` ==> `LOGLA_`
@@ -44,4 +53,4 @@ const LOGGER = new Logla(confs);
   - This method firstly runs `checkRolls()` which we talked. 
   - Validation checks and wirtes log the file.
 
-- Logla uses fs:promises to write logs means doesn't block event loop, but while app standing up uses fs module one time to check Log files.
+- Logla uses fs/promises to write logs means doesn't block event loop, but while app standing up uses fs module one time to check Log files.
