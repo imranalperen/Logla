@@ -4,12 +4,9 @@ Learning purpose logging library based on fs, fs/promises modules.
 - `Node: v20.10.0`
 
 ## Using Example
-```
-npm i logla
-```
 
 ```js
-const { Logla } = require("logla");
+const { Logla } = require("./app/logla");
 const path = require("path");
 
 const confs = {
@@ -25,8 +22,6 @@ const LOGGER = new Logla(confs);
     const loger = await LOGGER.init();
     loger.log("test");
 })();
-
-
 ```
 ### Output
 
